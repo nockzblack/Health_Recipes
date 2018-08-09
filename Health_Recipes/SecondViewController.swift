@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  Health_Recipes
 //
-//  Created by Fernando Benavides Rodriguez on 8/9/18.
+//  Created by Fernando Benavides Rodriguez & Jorge Vinicio Quintero Santos on 8/9/18.
 //  Copyright © 2018 Nockzblack. All rights reserved.
 //
 
