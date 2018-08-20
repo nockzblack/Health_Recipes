@@ -3,4 +3,4 @@ An iOS app to manage your health recipes in order to make easier the process to 
 
 ### Engineers
 - Fernando Benavides, [nockzblack](https://github.com/nockzblack)
-- Vinicio Quintero, , [nockzblack](https://github.com/nockzblack)
+- Vinicio Quintero, , [Hivini](https://github.com/Hivini)
