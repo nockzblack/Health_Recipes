@@ -11,9 +11,7 @@ import UIKit
 class BreakfastTableViewController: UITableViewController {
     
     // MARK: Vars
-    
     var breakfastList: Array<Dish> = Array()
-    
     
     // MARK: funcs
     
@@ -35,7 +33,11 @@ class BreakfastTableViewController: UITableViewController {
         let auxDish = Dish()
         auxDish.nameRecipe = "Sandwich"
         
+        let quesadilla = Dish()
+        quesadilla.nameRecipe = "Quesadilla"
+        
         self.breakfastList.append(auxDish)
+        self.breakfastList.append(quesadilla)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,6 +72,31 @@ class BreakfastTableViewController: UITableViewController {
         cell.textLabel?.text = self.breakfastList[indexPath.row].nameRecipe
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = self.breakfastList[indexPath.row]
+        self.performSegue(withIdentifier: "RecipeSegue", sender: recipe)
+        print("didSelectRowAt")
+        
+    }
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        print("prepare for segue")
+        if segue.identifier == "RecipeSegue" {
+            let auxRecipe = sender as! Dish
+            let recipeView:RecipeViewController = segue.destination as! RecipeViewController
+            
+            recipeView.breakfast = auxRecipe
+            
+            
+        }
     }
 
     /*
@@ -107,14 +134,5 @@ class BreakfastTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
