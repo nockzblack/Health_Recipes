@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C16BC86F212EF87C00EDF3B3 /* newRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BC86E212EF87C00EDF3B3 /* newRecipeViewController.swift */; };
 		C1B86816212B11AF00085E6A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B86815212B11AF00085E6A /* RecipeViewController.swift */; };
 		C1BB12B5211CFA050023E76E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12B4211CFA050023E76E /* AppDelegate.swift */; };
 		C1BB12BC211CFA050023E76E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BA211CFA050023E76E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C16BC86E212EF87C00EDF3B3 /* newRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newRecipeViewController.swift; sourceTree = "<group>"; };
 		C1B86815212B11AF00085E6A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		C1BB12B1211CFA050023E76E /* Health_Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health_Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BB12B4211CFA050023E76E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				C1BB12B4211CFA050023E76E /* AppDelegate.swift */,
 				C1BB12CA21209FD90023E76E /* BreakfastTableViewController.swift */,
 				C1B86815212B11AF00085E6A /* RecipeViewController.swift */,
+				C16BC86E212EF87C00EDF3B3 /* newRecipeViewController.swift */,
 				C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */,
 				C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */,
 				C1BB12D42120A2BF0023E76E /* UserController.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BB133A212634310023E76E /* Ingredients.swift in Sources */,
+				C16BC86F212EF87C00EDF3B3 /* newRecipeViewController.swift in Sources */,
 				C1BB12CD2120A1530023E76E /* LunchTableViewController.swift in Sources */,
 				C1BB12CF2120A1670023E76E /* DinnerTableViewController.swift in Sources */,
 				C1BB12D52120A2BF0023E76E /* UserController.swift in Sources */,

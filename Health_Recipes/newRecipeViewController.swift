@@ -1,28 +1,35 @@
 //
-//  RecipeViewController.swift
+//  newRecipeViewController.swift
 //  Health_Recipes
 //
-//  Created by Fernando Benavides Rodriguez on 8/20/18.
+//  Created by Fernando Benavides Rodriguez on 8/23/18.
 //  Copyright © 2018 Nockzblack. All rights reserved.
 //
 
 import UIKit
 
-class RecipeViewController: UIViewController {
+class newRecipeViewController: UIViewController {
     
-    // Vars
-    var breakfast = Dish()
+    // MARK: Vars
+    let newDish:Dish? = nil
     
-    // IBOutlets
-    @IBOutlet weak var recipeTitleLabel: UILabel!
     
-
-    // System Funcs
+    // MARK: IBOutlets
+    @IBOutlet weak var recipeNameTextField: UITextField!
+    @IBOutlet weak var ingredientsTextField: UITextField!
+    @IBOutlet weak var directionsTextField: UITextField!
+    
+    
+    // MARK: IBActions
+    @IBAction func addNewRecipe(_ sender: UIButton) {
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        self.recipeTitleLabel.text = self.breakfast.nameRecipe
     }
 
     override func didReceiveMemoryWarning() {

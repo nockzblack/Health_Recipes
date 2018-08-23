@@ -77,8 +77,6 @@ class BreakfastTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = self.breakfastList[indexPath.row]
         self.performSegue(withIdentifier: "RecipeSegue", sender: recipe)
-        print("didSelectRowAt")
-        
     }
     
     
@@ -88,7 +86,6 @@ class BreakfastTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("prepare for segue")
         if segue.identifier == "RecipeSegue" {
             let auxRecipe = sender as! Dish
             let recipeView:RecipeViewController = segue.destination as! RecipeViewController
