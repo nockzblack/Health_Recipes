@@ -20,8 +20,10 @@ class BreakfastTableViewController: UITableViewController {
     
     // MARK: IBACtions
     
-    
-    
+    @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
+        print("here: Inside addNewRecipe Button")
+        self.performSegue(withIdentifier: "addNewRecipe", sender: nil)
+    }
     
     
     // MARK: Sytems Funcs
@@ -86,12 +88,16 @@ class BreakfastTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "RecipeSegue" {
             let auxRecipe = sender as! Dish
             let recipeView:RecipeViewController = segue.destination as! RecipeViewController
-            
             recipeView.breakfast = auxRecipe
-            
+        }
+        
+        if segue.identifier == "addNewRecipe" {
+            print("here: Inside addNewRecipe segue")
+            let addRecipeView:AddRecipeViewController = segue.destination as! AddRecipeViewController
             
         }
     }

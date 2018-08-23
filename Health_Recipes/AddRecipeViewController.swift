@@ -1,5 +1,5 @@
 //
-//  newRecipeViewController.swift
+//  addRecipeViewController.swift
 //  Health_Recipes
 //
 //  Created by Fernando Benavides Rodriguez on 8/23/18.
@@ -8,10 +8,14 @@
 
 import UIKit
 
-class newRecipeViewController: UIViewController {
+class AddRecipeViewController: UIViewController {
     
     // MARK: Vars
-    let newDish:Dish? = nil
+    let dish:Dish? = nil
+    var previousViewController:UITableViewController? = nil
+    
+    // MARK: Funcs
+    
     
     
     // MARK: IBOutlets
@@ -22,6 +26,8 @@ class newRecipeViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func addNewRecipe(_ sender: UIButton) {
+        
+        
     }
     
     
@@ -38,14 +44,21 @@ class newRecipeViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "backToBreakFastTableView" {
+            
+            
+        }
+        
+        
+        
     }
-    */
+    
 
 }

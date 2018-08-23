@@ -36,22 +36,23 @@
                     <navigationItem key="navigationItem" id="8lQ-tG-Xz9">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="c6k-yy-tM9">
                             <connections>
-                                <segue destination="U9W-G0-mag" kind="presentation" modalTransitionStyle="coverVertical" id="wS5-eR-Hwj"/>
+                                <action selector="addNewRecipe:" destination="fZM-ny-kGd" id="b9R-So-cma"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="VSP-PP-ghq" kind="show" identifier="RecipeSegue" id="I5z-eC-AQb"/>
+                        <segue destination="U9W-G0-mag" kind="show" identifier="addNewRecipe" id="Pbd-jQ-GNr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2I-Ay-HTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1732" y="-700.29985007496259"/>
         </scene>
-        <!--New Recipe View Controller-->
+        <!--Add Recipe View Controller-->
         <scene sceneID="5fM-Ic-hE0">
             <objects>
-                <viewController id="U9W-G0-mag" customClass="newRecipeViewController" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U9W-G0-mag" customClass="AddRecipeViewController" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zhs-du-vH5" customClass="newR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPs-tf-iag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3650" y="-125"/>
+            <point key="canvasLocation" x="3490" y="-700"/>
         </scene>
         <!--RecipeViewController-->
         <scene sceneID="A9n-Ob-1J8">
@@ -252,6 +253,7 @@
         <!--Breakfast-->
         <scene sceneID="uen-7N-iuN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oPP-Zz-zrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A7V-bs-BOy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Breakfast" image="first" selectedImage="second" id="Q3O-gx-DuQ"/>
                     <toolbarItems/>
@@ -264,7 +266,6 @@
                         <segue destination="fZM-ny-kGd" kind="relationship" relationship="rootViewController" id="EEY-OP-Yar"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oPP-Zz-zrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="792.79999999999995" y="-700.29985007496259"/>
         </scene>
