@@ -10,14 +10,14 @@ import Foundation
 
 class Dish {
     var nameRecipe: String
-    var ingredients: Ingredients
+    var ingredients: Ingredient
     var preparationIntructions: String
     var totalCalories: Double
     var difulty:String
     
     init() {
         self.nameRecipe = ""
-        self.ingredients = Ingredients()
+        self.ingredients = Ingredient()
         self.preparationIntructions = ""
         self.totalCalories = 0.0
         self.difulty = ""

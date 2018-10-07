@@ -24,9 +24,16 @@ class AddRecipeViewController: UIViewController {
     @IBOutlet weak var directionsTextField: UITextField!
     
     
+    // TODO: Check the warning for autolayout
+    
+    
+    
     // MARK: IBActions
     @IBAction func addNewRecipe(_ sender: UIButton) {
         
+        // TODO: Add the new recipe to the list of recipes...
+        
+        print("Recipe Added. Yay!!")
         
     }
     

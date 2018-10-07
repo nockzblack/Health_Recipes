@@ -97,7 +97,7 @@ class BreakfastTableViewController: UITableViewController {
         
         if segue.identifier == "addNewRecipe" {
             print("here: Inside addNewRecipe segue")
-            let addRecipeView:AddRecipeViewController = segue.destination as! AddRecipeViewController
+            let _:AddRecipeViewController = segue.destination as! AddRecipeViewController
             
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Ingredients {
+class Ingredient {
     var amount:Double
     var ingredientName:String
     var portion:String
