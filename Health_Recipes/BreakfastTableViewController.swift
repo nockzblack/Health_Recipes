@@ -8,7 +8,8 @@
 
 import UIKit
 
-class BreakfastTableViewController: UITableViewController {
+class BreakfastTableViewController: UITableViewController, AddRecipe {
+    
     
     // MARK: Vars
     var breakfastList: Array<Dish> = Array()
@@ -17,6 +18,10 @@ class BreakfastTableViewController: UITableViewController {
     
     // MARK: IBOutlet
     
+    // MARK: Protocols
+    func newRecipeAdded(newDish: Dish) {
+        self.breakfastList.append(newDish)
+    }
     
     // MARK: IBACtions
     
@@ -46,11 +51,20 @@ class BreakfastTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        print("viewDidLoad from BreakfastTablewView")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear from BreakfastTablewView")
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -97,8 +111,8 @@ class BreakfastTableViewController: UITableViewController {
         
         if segue.identifier == "addNewRecipe" {
             print("here: Inside addNewRecipe segue")
-            let _:AddRecipeViewController = segue.destination as! AddRecipeViewController
-            
+            let auxAddRecipeView:AddRecipeViewController = segue.destination as! AddRecipeViewController
+            auxAddRecipeView.addDelegate = self
         }
     }
 

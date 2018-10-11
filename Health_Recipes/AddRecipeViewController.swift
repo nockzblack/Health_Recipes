@@ -8,21 +8,30 @@
 
 import UIKit
 
+//MARK: AddRecipe protocol
+protocol AddRecipe: class {
+    func newRecipeAdded(newDish: Dish)
+}
+
 class AddRecipeViewController: UIViewController {
     
     // MARK: Vars
-    let dish:Dish? = nil
-    var previousViewController:UITableViewController? = nil
+    var dish:Dish? = nil
+    weak var addDelegate:AddRecipe?
     
     // MARK: Funcs
-    
+    func createDish() {
+        self.dish!.nameRecipe = recipeNameTextField.text!
+        self.dish!.preparationIntructions = preparationTextView.text!
+        let auxIngredient = Ingredient()
+        auxIngredient.ingredientName = ingredientsTexView.text!
+    }
     
     
     // MARK: IBOutlets
     @IBOutlet weak var recipeNameTextField: UITextField!
-    @IBOutlet weak var ingredientsTextField: UITextField!
-    @IBOutlet weak var directionsTextField: UITextField!
-    
+    @IBOutlet weak var ingredientsTexView: UITextView!
+    @IBOutlet weak var preparationTextView: UITextView!
     
     // TODO: Check the warning for autolayout
     
@@ -30,10 +39,19 @@ class AddRecipeViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func addNewRecipe(_ sender: UIButton) {
-        
-        // TODO: Add the new recipe to the list of recipes...
-        
+        createDish()
+        addDelegate?.newRecipeAdded(newDish: self.dish!)
         print("Recipe Added. Yay!!")
+        self.dismiss(animated: true, completion: nil)
+        
+        
+        // TODO: return to the previous view controller, press the button Add Recipe
+        
+        
+        // TODO: Make a ingredient per line in the ingredientsTextView
+        
+        
+        // TODO: Add title to the view controller
         
     }
     
@@ -41,8 +59,9 @@ class AddRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.dish = Dish()
         // Do any additional setup after loading the view.
+        self.ingredientsTexView.toolbarPlaceholder = "1 ingredient per line"
     }
 
     override func didReceiveMemoryWarning() {
