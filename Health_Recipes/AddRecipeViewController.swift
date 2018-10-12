@@ -23,14 +23,20 @@ class AddRecipeViewController: UIViewController {
     func createDish() {
         self.dish!.nameRecipe = recipeNameTextField.text!
         self.dish!.preparationIntructions = preparationTextView.text!
-        let auxIngredient = Ingredient()
-        auxIngredient.ingredientName = ingredientsTexView.text!
+        let ingredintesStr = ingredientsTextView.text!
+        let ingredintes = ingredintesStr.components(separatedBy: "\n")
+        for ingredient in ingredintes {
+            let auxIngredient = Ingredient()
+            auxIngredient.ingredientName = ingredient
+            self.dish!.ingredients.append(auxIngredient)
+        }
+        print(self.dish!.ingredients)
     }
     
     
     // MARK: IBOutlets
     @IBOutlet weak var recipeNameTextField: UITextField!
-    @IBOutlet weak var ingredientsTexView: UITextView!
+    @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var preparationTextView: UITextView!
     
     // TODO: Check the warning for autolayout
@@ -39,29 +45,33 @@ class AddRecipeViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func addNewRecipe(_ sender: UIButton) {
-        createDish()
-        addDelegate?.newRecipeAdded(newDish: self.dish!)
-        print("Recipe Added. Yay!!")
-        self.dismiss(animated: true, completion: nil)
-        
-        
-        // TODO: return to the previous view controller, press the button Add Recipe
-        
-        
-        // TODO: Make a ingredient per line in the ingredientsTextView
-        
-        
-        // TODO: Add title to the view controller
-        
+        if (recipeNameTextField.text!.isEmpty) || (ingredientsTextView.text!.isEmpty) || (preparationTextView.text!.isEmpty) {
+            let alert = UIAlertController(title: "Error:", message: "There is empty fields", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OKAY, let me finish", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        } else {
+            createDish()
+            addDelegate?.newRecipeAdded(newDish: self.dish!)
+            print("Recipe Added. Yay!!")
+            
+            let alert = UIAlertController(title: "Yay!!", message: "New Recipe was added", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OKAY!", style: .default, handler: { action in
+                self.navigationController?.popViewController(animated: true)
+                
+            }))
+            self.present(alert, animated: true)
+        }
     }
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dish = Dish()
         // Do any additional setup after loading the view.
-        self.ingredientsTexView.toolbarPlaceholder = "1 ingredient per line"
+        self.dish = Dish() // init dish
+        self.title = "Adding a Recipe" // titlo for the view
+        self.ingredientsTextView.toolbarPlaceholder = "1 ingredient per line" // indiations for the keyboard input
+        
     }
 
     override func didReceiveMemoryWarning() {
