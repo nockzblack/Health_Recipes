@@ -10,19 +10,28 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     
+    
+    
     // Vars
     var breakfast = Dish()
     
     // IBOutlets
-    @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    // TODO: Add many connections with interface builder
+    
     
 
     // System Funcs
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.recipeTitleLabel.text = self.breakfast.nameRecipe
+        //self.recipeTitleLabel.text = self.breakfast.nameRecipe
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.scrollView.frame = self.view.frame;
+        scrollView.contentSize = CGSize(width: self.view.bounds.width, height: 1800)
+        // TODO: Adjust size with the bottom text area
     }
 
     override func didReceiveMemoryWarning() {
