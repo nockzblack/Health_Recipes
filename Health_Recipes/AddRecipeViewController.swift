@@ -67,7 +67,6 @@ class AddRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.dish = Dish() // init dish
         self.title = "Adding a Recipe" // titlo for the view
         self.ingredientsTextView.toolbarPlaceholder = "1 ingredient per line" // indiations for the keyboard input

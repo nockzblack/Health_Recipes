@@ -37,14 +37,21 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
         super.viewDidLoad()
         
         // testing
-        let auxDish = Dish()
-        auxDish.nameRecipe = "Sandwich"
+        let ingredient1 = Ingredient()
+        ingredient1.ingredientName = "Butter"
         
-        let quesadilla = Dish()
-        quesadilla.nameRecipe = "Quesadilla"
+        let ingredient2 = Ingredient()
+        ingredient2.ingredientName = "2 pieces of your favorite bread"
         
-        self.breakfastList.append(auxDish)
-        self.breakfastList.append(quesadilla)
+        
+        let sandwich = Dish()
+        sandwich.nameRecipe = "Butter Sandwich"
+        sandwich.preparationIntructions = "Spread the butter to the pieces of bread"
+        sandwich.ingredients.append(ingredient1)
+        sandwich.ingredients.append(ingredient2)
+        self.breakfastList.append(sandwich)
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

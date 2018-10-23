@@ -17,7 +17,10 @@ class RecipeViewController: UIViewController {
     
     // IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
-    // TODO: Add many connections with interface builder
+    @IBOutlet weak var recipeView: UIView!
+    @IBOutlet weak var dishNameLabel: UILabel!
+    @IBOutlet weak var ingredientsTextView: UITextView!
+    @IBOutlet weak var preparationTextView: UITextView!
     
     
 
@@ -25,13 +28,24 @@ class RecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.recipeTitleLabel.text = self.breakfast.nameRecipe
+        self.dishNameLabel.text = self.breakfast.nameRecipe
+        self.preparationTextView.text = self.breakfast.preparationIntructions
+        
+        var textForIngredientsTextView = String()
+        
+        for instruction in self.breakfast.ingredients {
+            textForIngredientsTextView = textForIngredientsTextView + "\n" + instruction.ingredientName
+        }
+        
+        self.ingredientsTextView.text = textForIngredientsTextView
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.scrollView.frame = self.view.frame;
-        scrollView.contentSize = CGSize(width: self.view.bounds.width, height: 1800)
-        // TODO: Adjust size with the bottom text area
+        //scrollView.contentSize = CGSize(width: self.view.bounds.width, height: 1000)
+        // TODO: Adjust size with the bottom text area 
+        
     }
 
     override func didReceiveMemoryWarning() {
