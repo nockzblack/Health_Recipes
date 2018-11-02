@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RecipeViewController: UIViewController {
+class RecipeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
+    var imagePickerController : UIImagePickerController!
     
     // Vars
     var breakfast = Dish()
@@ -21,9 +21,62 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var dishNameLabel: UILabel!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var preparationTextView: UITextView!
+    @IBOutlet weak var recipePhotoImageView: UIImageView!
+    
+    @IBAction func onTakePhoto(_ sender: UIButton) {
+        imagePickerController = UIImagePickerController();
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .camera
+        
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
     
-
+    func saveImage(imageName: String) {
+        // create a instance of the file manager
+        
+        let fileManager = FileManager.default
+        
+        // get the image path
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        
+        // get the image we took
+        let image = recipePhotoImageView.image!
+        
+        // get the PNG data for this image
+        let data = image.pngData()
+        
+        // store it int he document directory
+        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
+    }
+    
+    func getImage(imageName: String) {
+        // create a instance of the file manager
+        
+        let fileManager = FileManager.default
+        
+        // get the image path
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        
+        if fileManager.fileExists(atPath: imagePath) {
+            recipePhotoImageView.image = UIImage(contentsOfFile: imagePath)
+        } else {
+            recipePhotoImageView.image = UIImage(named: "defaultImage.png")
+            print("Image not found!!")
+        }
+    }
+    
+    // MARK: Delegates funcs
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imagePickerController.dismiss(animated: true, completion: nil)
+        let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        recipePhotoImageView.contentMode = .scaleToFill
+        recipePhotoImageView.image = chosenImage
+        saveImage(imageName: breakfast.nameRecipe)
+    }
+    
     // System Funcs
 
     override func viewDidLoad() {
@@ -38,6 +91,7 @@ class RecipeViewController: UIViewController {
         }
         
         self.ingredientsTextView.text = textForIngredientsTextView
+        getImage(imageName: breakfast.nameRecipe)
         
     }
     

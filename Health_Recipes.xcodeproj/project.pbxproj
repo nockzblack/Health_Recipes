@@ -37,6 +37,7 @@
 		EB152B31216A8DF0001058EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B20216A8DF0001058EA /* IQUIView+Hierarchy.swift */; };
 		EB152B32216A8DF0001058EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B21216A8DF0001058EA /* IQNSArray+Sort.swift */; };
 		EB91EDDF217A503900BB66A0 /* food.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB91EDDE217A503900BB66A0 /* food.jpeg */; };
+		EBD88A04218C8B1B00B48F0B /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD88A03218C8B1B00B48F0B /* defaultImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		EB152B20216A8DF0001058EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		EB152B21216A8DF0001058EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		EB91EDDE217A503900BB66A0 /* food.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food.jpeg; sourceTree = "<group>"; };
+		EBD88A03218C8B1B00B48F0B /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				C1B86815212B11AF00085E6A /* RecipeViewController.swift */,
 				C1BB12CA21209FD90023E76E /* BreakfastTableViewController.swift */,
 				C1BB12BA211CFA050023E76E /* Main.storyboard */,
+				EBD88A03218C8B1B00B48F0B /* defaultImage.png */,
 				EB91EDDE217A503900BB66A0 /* food.jpeg */,
 				C1BB12BD211CFA060023E76E /* Assets.xcassets */,
 				C1BB12BF211CFA060023E76E /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD88A04218C8B1B00B48F0B /* defaultImage.png in Resources */,
 				C1BB12C1211CFA060023E76E /* LaunchScreen.storyboard in Resources */,
 				C1BB12BE211CFA060023E76E /* Assets.xcassets in Resources */,
 				EB152B2B216A8DF0001058EA /* IQKeyboardManager.bundle in Resources */,

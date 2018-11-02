@@ -136,7 +136,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGv-Yw-o0c">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="x8v-XH-VYW">
+                                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="x8v-XH-VYW">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="0gQ-p0-nez"/>
@@ -149,7 +149,7 @@
                                                     <constraint firstAttribute="height" constant="36" id="gJa-dQ-lug"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="22"/>
-                                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-sI-W62">
@@ -185,6 +185,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJo-8K-dCS">
+                                                <rect key="frame" x="35" y="8" width="308" height="215"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="onTakePhoto:" destination="VSP-PP-ghq" eventType="touchUpInside" id="jJi-fw-ChS"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -237,6 +244,7 @@
                         <outlet property="dishNameLabel" destination="z9D-1y-Wg1" id="gGp-X5-TUy"/>
                         <outlet property="ingredientsTextView" destination="E3B-6o-1vy" id="yFH-VM-PvK"/>
                         <outlet property="preparationTextView" destination="rSe-0B-OYh" id="CZ2-UR-SId"/>
+                        <outlet property="recipePhotoImageView" destination="x8v-XH-VYW" id="NLT-eg-wXQ"/>
                         <outlet property="recipeView" destination="fGv-Yw-o0c" id="5Xm-4T-xs4"/>
                         <outlet property="scrollView" destination="9uX-YJ-RA0" id="e1c-Yg-SVK"/>
                     </connections>
@@ -360,8 +368,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultImage.png" width="400" height="400"/>
         <image name="first" width="30" height="30"/>
-        <image name="food.jpeg" width="1880" height="1253"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
