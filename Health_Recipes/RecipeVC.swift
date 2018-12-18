@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var imagePickerController : UIImagePickerController!
     
@@ -82,17 +82,9 @@ class RecipeViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dishNameLabel.text = self.breakfast.nameRecipe
-        self.preparationTextView.text = self.breakfast.preparationIntructions
-        
-        var textForIngredientsTextView = String()
-        
-        for instruction in self.breakfast.ingredients {
-            textForIngredientsTextView = textForIngredientsTextView + "\n" + instruction.ingredientName
-        }
-        
-        self.ingredientsTextView.text = textForIngredientsTextView
+        self.preparationTextView.text = self.breakfast.instructions
+        self.ingredientsTextView.text = self.breakfast.ingredients
         getImage(imageName: breakfast.nameRecipe)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,11 +92,6 @@ class RecipeViewController: UIViewController, UINavigationControllerDelegate, UI
         //scrollView.contentSize = CGSize(width: self.view.bounds.width, height: 1000)
         // TODO: Adjust size with the bottom text area 
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Breakfast Table View Controller-->
+        <!--Breakfast TableVC-->
         <scene sceneID="F62-uF-swn">
             <objects>
-                <tableViewController id="fZM-ny-kGd" customClass="BreakfastTableViewController" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="fZM-ny-kGd" customClass="BreakfastTableVC" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CF1-rf-xdS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="1732" y="-700.29985007496259"/>
         </scene>
-        <!--Add Recipe View Controller-->
+        <!--Adding RecipeVC-->
         <scene sceneID="5fM-Ic-hE0">
             <objects>
-                <viewController id="U9W-G0-mag" customClass="AddRecipeViewController" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U9W-G0-mag" customClass="AddingRecipeVC" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zhs-du-vH5" customClass="newR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
         <!--RecipeViewController-->
         <scene sceneID="A9n-Ob-1J8">
             <objects>
-                <viewController id="VSP-PP-ghq" userLabel="RecipeViewController" customClass="RecipeViewController" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VSP-PP-ghq" userLabel="RecipeViewController" customClass="RecipeVC" customModule="Health_Recipes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n70-lZ-eAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C16BC86F212EF87C00EDF3B3 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BC86E212EF87C00EDF3B3 /* AddRecipeViewController.swift */; };
-		C1B86816212B11AF00085E6A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B86815212B11AF00085E6A /* RecipeViewController.swift */; };
+		C16BC86F212EF87C00EDF3B3 /* AddingRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BC86E212EF87C00EDF3B3 /* AddingRecipeVC.swift */; };
+		C1B86816212B11AF00085E6A /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B86815212B11AF00085E6A /* RecipeVC.swift */; };
 		C1BB12B5211CFA050023E76E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12B4211CFA050023E76E /* AppDelegate.swift */; };
 		C1BB12BC211CFA050023E76E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BA211CFA050023E76E /* Main.storyboard */; };
 		C1BB12BE211CFA060023E76E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BD211CFA060023E76E /* Assets.xcassets */; };
 		C1BB12C1211CFA060023E76E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BF211CFA060023E76E /* LaunchScreen.storyboard */; };
-		C1BB12CB21209FD90023E76E /* BreakfastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CA21209FD90023E76E /* BreakfastTableViewController.swift */; };
+		C1BB12CB21209FD90023E76E /* BreakfastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */; };
 		C1BB12CD2120A1530023E76E /* LunchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */; };
 		C1BB12CF2120A1670023E76E /* DinnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */; };
 		C1BB12D52120A2BF0023E76E /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12D42120A2BF0023E76E /* UserController.swift */; };
 		C1BB1338212633A00023E76E /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB1337212633A00023E76E /* Dish.swift */; };
-		C1BB133A212634310023E76E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB1339212634310023E76E /* Ingredient.swift */; };
 		EB152B22216A8DF0001058EA /* IQTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B0C216A8DF0001058EA /* IQTextView.swift */; };
 		EB152B23216A8DF0001058EA /* IQPreviousNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B0E216A8DF0001058EA /* IQPreviousNextView.swift */; };
 		EB152B24216A8DF0001058EA /* IQTitleBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B0F216A8DF0001058EA /* IQTitleBarButtonItem.swift */; };
@@ -41,20 +40,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C16BC86E212EF87C00EDF3B3 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
-		C1B86815212B11AF00085E6A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		C16BC86E212EF87C00EDF3B3 /* AddingRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingRecipeVC.swift; sourceTree = "<group>"; };
+		C1B86815212B11AF00085E6A /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		C1BB12B1211CFA050023E76E /* Health_Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health_Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BB12B4211CFA050023E76E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1BB12BB211CFA050023E76E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1BB12BD211CFA060023E76E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1BB12C0211CFA060023E76E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1BB12C2211CFA060023E76E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1BB12CA21209FD90023E76E /* BreakfastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastTableViewController.swift; sourceTree = "<group>"; };
+		C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastTableVC.swift; sourceTree = "<group>"; };
 		C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchTableViewController.swift; sourceTree = "<group>"; };
 		C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerTableViewController.swift; sourceTree = "<group>"; };
 		C1BB12D42120A2BF0023E76E /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C1BB1337212633A00023E76E /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
-		C1BB1339212634310023E76E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		EB152B0C216A8DF0001058EA /* IQTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTextView.swift; sourceTree = "<group>"; };
 		EB152B0E216A8DF0001058EA /* IQPreviousNextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQPreviousNextView.swift; sourceTree = "<group>"; };
 		EB152B0F216A8DF0001058EA /* IQTitleBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQTitleBarButtonItem.swift; sourceTree = "<group>"; };
@@ -119,14 +117,13 @@
 			children = (
 				EB152B0A216A8DF0001058EA /* IQKeyboardManagerSwift */,
 				C1BB1337212633A00023E76E /* Dish.swift */,
-				C1BB1339212634310023E76E /* Ingredient.swift */,
-				C1BB12B4211CFA050023E76E /* AppDelegate.swift */,
-				C16BC86E212EF87C00EDF3B3 /* AddRecipeViewController.swift */,
-				C1B86815212B11AF00085E6A /* RecipeViewController.swift */,
-				C1BB12CA21209FD90023E76E /* BreakfastTableViewController.swift */,
+				C16BC86E212EF87C00EDF3B3 /* AddingRecipeVC.swift */,
+				C1B86815212B11AF00085E6A /* RecipeVC.swift */,
+				C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */,
 				C1BB12BA211CFA050023E76E /* Main.storyboard */,
 				EBD88A03218C8B1B00B48F0B /* defaultImage.png */,
 				EB91EDDE217A503900BB66A0 /* food.jpeg */,
+				C1BB12B4211CFA050023E76E /* AppDelegate.swift */,
 				C1BB12BD211CFA060023E76E /* Assets.xcassets */,
 				C1BB12BF211CFA060023E76E /* LaunchScreen.storyboard */,
 				C1BB12C2211CFA060023E76E /* Info.plist */,
@@ -275,11 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1BB133A212634310023E76E /* Ingredient.swift in Sources */,
 				EB152B32216A8DF0001058EA /* IQNSArray+Sort.swift in Sources */,
 				EB152B28216A8DF0001058EA /* IQInvocation.swift in Sources */,
 				EB152B26216A8DF0001058EA /* IQToolbar.swift in Sources */,
-				C16BC86F212EF87C00EDF3B3 /* AddRecipeViewController.swift in Sources */,
+				C16BC86F212EF87C00EDF3B3 /* AddingRecipeVC.swift in Sources */,
 				EB152B27216A8DF0001058EA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				EB152B2E216A8DF0001058EA /* IQUIScrollView+Additions.swift in Sources */,
 				C1BB12CD2120A1530023E76E /* LunchTableViewController.swift in Sources */,
@@ -289,7 +285,7 @@
 				EB152B22216A8DF0001058EA /* IQTextView.swift in Sources */,
 				EB152B23216A8DF0001058EA /* IQPreviousNextView.swift in Sources */,
 				EB152B2A216A8DF0001058EA /* IQKeyboardManagerConstants.swift in Sources */,
-				C1B86816212B11AF00085E6A /* RecipeViewController.swift in Sources */,
+				C1B86816212B11AF00085E6A /* RecipeVC.swift in Sources */,
 				C1BB1338212633A00023E76E /* Dish.swift in Sources */,
 				EB152B2F216A8DF0001058EA /* IQUIViewController+Additions.swift in Sources */,
 				EB152B31216A8DF0001058EA /* IQUIView+Hierarchy.swift in Sources */,
@@ -298,7 +294,7 @@
 				C1BB12B5211CFA050023E76E /* AppDelegate.swift in Sources */,
 				EB152B2D216A8DF0001058EA /* IQKeyboardManager.swift in Sources */,
 				EB152B2C216A8DF0001058EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
-				C1BB12CB21209FD90023E76E /* BreakfastTableViewController.swift in Sources */,
+				C1BB12CB21209FD90023E76E /* BreakfastTableVC.swift in Sources */,
 				EB152B29216A8DF0001058EA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

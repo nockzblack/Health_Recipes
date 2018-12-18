@@ -13,7 +13,7 @@ protocol AddRecipe: class {
     func newRecipeAdded(newDish: Dish)
 }
 
-class AddRecipeViewController: UIViewController {
+class AddingRecipeVC: UIViewController {
     
     // MARK: Vars
     var dish:Dish? = nil
@@ -22,15 +22,11 @@ class AddRecipeViewController: UIViewController {
     // MARK: Funcs
     func createDish() {
         self.dish!.nameRecipe = recipeNameTextField.text!
-        self.dish!.preparationIntructions = preparationTextView.text!
-        let ingredintesStr = ingredientsTextView.text!
-        let ingredintes = ingredintesStr.components(separatedBy: "\n")
-        for ingredient in ingredintes {
-            let auxIngredient = Ingredient()
-            auxIngredient.ingredientName = ingredient
-            self.dish!.ingredients.append(auxIngredient)
-        }
-        print(self.dish!.ingredients)
+        self.dish!.instructions = preparationTextView.text!
+        self.dish!.ingredients = ingredientsTextView.text!
+        print("Recipe Name: \(self.dish!.nameRecipe)")
+        print("Ingredients: \(self.dish!.ingredients)")
+        print("Instrucciones: \(self.dish!.instructions)")
     }
     
     
@@ -72,11 +68,6 @@ class AddRecipeViewController: UIViewController {
         self.ingredientsTextView.toolbarPlaceholder = "1 ingredient per line" // indiations for the keyboard input
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     
@@ -87,12 +78,8 @@ class AddRecipeViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "backToBreakFastTableView" {
-            
-            
         }
-        
-        
-        
+    
     }
     
 
