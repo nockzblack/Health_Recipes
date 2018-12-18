@@ -8,18 +8,35 @@
 
 import Foundation
 
-class Dish {
+class Dish: NSObject, NSCoding {
     var nameRecipe: String
-    var ingredients: Array<Ingredient>
-    var preparationIntructions: String
-    var totalCalories: Double
-    var difulty:String
+    var ingredients: String
+    var instructions: String
     
-    init() {
+    override init() {
         self.nameRecipe = ""
-        self.ingredients = Array()
-        self.preparationIntructions = ""
-        self.totalCalories = 0.0
-        self.difulty = ""
+        self.ingredients = ""
+        self.instructions = ""
     }
+    
+    init(name: String, ingredients: String, preparation:String) {
+        self.nameRecipe = name
+        self.ingredients = ingredients
+        self.instructions = preparation
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(nameRecipe, forKey: "nameRecipe")
+        aCoder.encode(ingredients, forKey: "ingredients")
+        aCoder.encode(instructions, forKey: "instructions")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "nameRecipe") as! String
+        let ingredients = aDecoder.decodeObject(forKey: "ingredients") as! String
+        let preparation = aDecoder.decodeObject(forKey: "instructions") as! String
+        self.init(name: name, ingredients: ingredients, preparation: preparation)
+    }
+    
+    
 }

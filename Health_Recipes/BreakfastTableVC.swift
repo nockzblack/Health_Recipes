@@ -8,8 +8,7 @@
 
 import UIKit
 
-class BreakfastTableViewController: UITableViewController, AddRecipe {
-    
+class BreakfastTableVC: UITableViewController, AddRecipe {
     
     // MARK: Vars
     var breakfastList: Array<Dish> = Array()
@@ -24,7 +23,6 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
     }
     
     // MARK: IBACtions
-    
     @IBAction func addNewRecipe(_ sender: UIBarButtonItem) {
         print("here: Inside addNewRecipe Button")
         self.performSegue(withIdentifier: "addNewRecipe", sender: nil)
@@ -35,16 +33,24 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad from BreakfastTablewView")
+        getData()
         // testing
-        let auxDish = Dish()
-        auxDish.nameRecipe = "Sandwich"
+        /*
+        var ingredientTest = ""
+        ingredientTest += "Butter \n"
+        ingredientTest += "2 pieces of your favorite bread"
         
-        let quesadilla = Dish()
-        quesadilla.nameRecipe = "Quesadilla"
+        let sandwich = Dish()
+        sandwich.nameRecipe = "Butter Sandwich"
+        sandwich.instructions = "Spread the butter to the pieces of bread"
+        sandwich.ingredients = ingredientTest
+        self.breakfastList.append(sandwich)
+        */
         
-        self.breakfastList.append(auxDish)
-        self.breakfastList.append(quesadilla)
+        //storeData()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -52,20 +58,23 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        print("viewDidLoad from BreakfastTablewView")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear from BreakfastTablewView")
         self.tableView.reloadData()
+        //getData()
     }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisappear from BreakfastTablewView")
+        storeData()
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -105,13 +114,13 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
         
         if segue.identifier == "RecipeSegue" {
             let auxRecipe = sender as! Dish
-            let recipeView:RecipeViewController = segue.destination as! RecipeViewController
+            let recipeView:RecipeVC = segue.destination as! RecipeVC
             recipeView.breakfast = auxRecipe
         }
         
         if segue.identifier == "addNewRecipe" {
             print("here: Inside addNewRecipe segue")
-            let auxAddRecipeView:AddRecipeViewController = segue.destination as! AddRecipeViewController
+            let auxAddRecipeView:AddingRecipeVC = segue.destination as! AddingRecipeVC
             auxAddRecipeView.addDelegate = self
         }
     }
@@ -150,6 +159,41 @@ class BreakfastTableViewController: UITableViewController, AddRecipe {
         return true
     }
     */
+    
+    
+    // MARK: Saving Data
+    
+    // storing app data
+    func storeData() {
+        let userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: breakfastList)
+        userDefaults.set(encodedData, forKey: "breakfastListSaved")
+        userDefaults.synchronize()
+        
+        //print("on storeData \(breakfastList.count)")
+        //defaults?.set(breakfastList[0], forKey: "breakfastSaved")
+        //defaults?.synchronize()
+        
+    }
 
+    
+    // getting app adata
+    func getData() {
+        let userDefaults = UserDefaults.standard
+        let data = userDefaults.object(forKey: "breakfastListSaved")
+        
+        if  data != nil {
+            
+            let datas = data as! Data
+            let decodedBreakfastList = NSKeyedUnarchiver.unarchiveObject(with: datas) as! [Dish]
+            
+            print("Count:  \(decodedBreakfastList.count)")
+            
+            self.breakfastList = decodedBreakfastList
+        } else {
+            print("No data")
+        }
+        
+    }
 
 }
