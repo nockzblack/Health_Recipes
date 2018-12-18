@@ -14,7 +14,6 @@
 		C1BB12BE211CFA060023E76E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BD211CFA060023E76E /* Assets.xcassets */; };
 		C1BB12C1211CFA060023E76E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1BB12BF211CFA060023E76E /* LaunchScreen.storyboard */; };
 		C1BB12CB21209FD90023E76E /* BreakfastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */; };
-		C1BB12CD2120A1530023E76E /* LunchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */; };
 		C1BB12CF2120A1670023E76E /* DinnerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */; };
 		C1BB12D52120A2BF0023E76E /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB12D42120A2BF0023E76E /* UserController.swift */; };
 		C1BB1338212633A00023E76E /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BB1337212633A00023E76E /* Dish.swift */; };
@@ -35,6 +34,7 @@
 		EB152B30216A8DF0001058EA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B1F216A8DF0001058EA /* IQUITextFieldView+Additions.swift */; };
 		EB152B31216A8DF0001058EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B20216A8DF0001058EA /* IQUIView+Hierarchy.swift */; };
 		EB152B32216A8DF0001058EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB152B21216A8DF0001058EA /* IQNSArray+Sort.swift */; };
+		EB61E94F21C9A5370058E68A /* DinnerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61E94E21C9A5370058E68A /* DinnerTableVC.swift */; };
 		EB91EDDF217A503900BB66A0 /* food.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB91EDDE217A503900BB66A0 /* food.jpeg */; };
 		EBD88A04218C8B1B00B48F0B /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD88A03218C8B1B00B48F0B /* defaultImage.png */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,6 @@
 		C1BB12C0211CFA060023E76E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1BB12C2211CFA060023E76E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakfastTableVC.swift; sourceTree = "<group>"; };
-		C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchTableViewController.swift; sourceTree = "<group>"; };
 		C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerTableViewController.swift; sourceTree = "<group>"; };
 		C1BB12D42120A2BF0023E76E /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C1BB1337212633A00023E76E /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		EB152B1F216A8DF0001058EA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		EB152B20216A8DF0001058EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		EB152B21216A8DF0001058EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		EB61E94E21C9A5370058E68A /* DinnerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerTableVC.swift; sourceTree = "<group>"; };
 		EB91EDDE217A503900BB66A0 /* food.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food.jpeg; sourceTree = "<group>"; };
 		EBD88A03218C8B1B00B48F0B /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +89,6 @@
 		C16BC870212F780200EDF3B3 /* To Develop */ = {
 			isa = PBXGroup;
 			children = (
-				C1BB12CC2120A1530023E76E /* LunchTableViewController.swift */,
 				C1BB12CE2120A1670023E76E /* DinnerTableViewController.swift */,
 				C1BB12D42120A2BF0023E76E /* UserController.swift */,
 			);
@@ -120,6 +119,7 @@
 				C16BC86E212EF87C00EDF3B3 /* AddingRecipeVC.swift */,
 				C1B86815212B11AF00085E6A /* RecipeVC.swift */,
 				C1BB12CA21209FD90023E76E /* BreakfastTableVC.swift */,
+				EB61E94E21C9A5370058E68A /* DinnerTableVC.swift */,
 				C1BB12BA211CFA050023E76E /* Main.storyboard */,
 				EBD88A03218C8B1B00B48F0B /* defaultImage.png */,
 				EB91EDDE217A503900BB66A0 /* food.jpeg */,
@@ -278,11 +278,11 @@
 				C16BC86F212EF87C00EDF3B3 /* AddingRecipeVC.swift in Sources */,
 				EB152B27216A8DF0001058EA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				EB152B2E216A8DF0001058EA /* IQUIScrollView+Additions.swift in Sources */,
-				C1BB12CD2120A1530023E76E /* LunchTableViewController.swift in Sources */,
 				EB152B30216A8DF0001058EA /* IQUITextFieldView+Additions.swift in Sources */,
 				C1BB12CF2120A1670023E76E /* DinnerTableViewController.swift in Sources */,
 				C1BB12D52120A2BF0023E76E /* UserController.swift in Sources */,
 				EB152B22216A8DF0001058EA /* IQTextView.swift in Sources */,
+				EB61E94F21C9A5370058E68A /* DinnerTableVC.swift in Sources */,
 				EB152B23216A8DF0001058EA /* IQPreviousNextView.swift in Sources */,
 				EB152B2A216A8DF0001058EA /* IQKeyboardManagerConstants.swift in Sources */,
 				C1B86816212B11AF00085E6A /* RecipeVC.swift in Sources */,

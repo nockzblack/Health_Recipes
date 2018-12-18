@@ -1,17 +1,33 @@
 //
-//  LunchTableViewController.swift
+//  DinnerTableVC.swift
 //  Health_Recipes
 //
-//  Created by Fernando Benavides Rodriguez on 8/12/18.
+//  Created by Fernando Benavides on 12/18/18.
 //  Copyright © 2018 Nockzblack. All rights reserved.
 //
 
 import UIKit
 
-class LunchTableViewController: UITableViewController {
+class DinnerTableVC: UITableViewController {
+    
+    
+    // MARK: Vars
+    var dinnerList: Array<Dish> = Array()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // testing
+         var ingredientTest = ""
+         ingredientTest += "Butter \n"
+         ingredientTest += "2 pieces of your favorite bread"
+         
+         let sandwich = Dish()
+         sandwich.nameRecipe = "Butter Sandwich"
+         sandwich.instructions = "Spread the butter to the pieces of bread"
+         sandwich.ingredients = ingredientTest
+         self.dinnerList.append(sandwich)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,23 +35,36 @@ class LunchTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear from DinnerTableVC")
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.dinnerList.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DinnerCell", for: indexPath)
+        
+        // Configure the cell...
+        cell.textLabel?.text = self.dinnerList[indexPath.row].nameRecipe
+        
+        return cell
+    }
+    
+    
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,7 +116,7 @@ class LunchTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */
