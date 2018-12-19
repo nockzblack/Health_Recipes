@@ -10,12 +10,12 @@ import UIKit
 
 class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // MARK: Vars
+    var dish = Dish()
     var imagePickerController : UIImagePickerController!
     
-    // Vars
-    var dish = Dish()
     
-    // IBOutlets
+    // MARK: IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var recipeView: UIView!
     @IBOutlet weak var dishNameLabel: UILabel!
@@ -23,6 +23,8 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     @IBOutlet weak var preparationTextView: UITextView!
     @IBOutlet weak var recipePhotoImageView: UIImageView!
     
+    
+    // MARK: IBActions
     @IBAction func onTakePhoto(_ sender: UIButton) {
         imagePickerController = UIImagePickerController();
         imagePickerController.delegate = self
@@ -32,9 +34,9 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     }
     
     
+    // MARK: Funcs
     func saveImage(imageName: String) {
         // create a instance of the file manager
-        
         let fileManager = FileManager.default
         
         // get the image path
@@ -52,7 +54,6 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     
     func getImage(imageName: String) {
         // create a instance of the file manager
-        
         let fileManager = FileManager.default
         
         // get the image path
@@ -66,10 +67,9 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         }
     }
     
-    // MARK: Delegates funcs
     
+    // MARK: Delegates funcs
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         imagePickerController.dismiss(animated: true, completion: nil)
         let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         recipePhotoImageView.contentMode = .scaleToFill
@@ -77,8 +77,8 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         saveImage(imageName: dish.nameRecipe)
     }
     
-    // System Funcs
-
+    
+    // MARK: System Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dishNameLabel.text = self.dish.nameRecipe
@@ -90,19 +90,7 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     override func viewDidAppear(_ animated: Bool) {
         self.scrollView.frame = self.view.frame;
         //scrollView.contentSize = CGSize(width: self.view.bounds.width, height: 1000)
-        // TODO: Adjust size with the bottom text area 
-        
+        // TODO: Adjust size with the bottom text area
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

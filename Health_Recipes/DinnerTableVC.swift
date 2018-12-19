@@ -8,26 +8,27 @@
 
 import UIKit
 
-class DinnerTableVC: UITableViewController, AddRecipe {
+class DinnerTableVC: UITableViewController, AddRecipeDelegate {
+    
+    // MARK: Vars
+    var dinnerList: Array<Dish> = Array()
     
     
+    // MARK: IBActions
+    @IBAction func newDinnerAdded(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "addNewRecipe", sender: nil)
+    }
+    
+    
+    // MARK: Protocols
     func newRecipeAdded(newDish: Dish) {
         self.dinnerList.append(newDish)
     }
     
     
-    @IBAction func newDinnerAdded(_ sender: UIBarButtonItem) {
-        print("here: Inside newDinnerAdded Button")
-        self.performSegue(withIdentifier: "addNewRecipe", sender: nil)
-    }
-    
-    // MARK: Vars
-    var dinnerList: Array<Dish> = Array()
-    
-
+    // MARK: System Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getData()
         /*
         // testing
@@ -41,12 +42,6 @@ class DinnerTableVC: UITableViewController, AddRecipe {
          sandwich.ingredients = ingredientTest
          self.dinnerList.append(sandwich)
         */
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     
@@ -61,26 +56,20 @@ class DinnerTableVC: UITableViewController, AddRecipe {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.dinnerList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DinnerCell", for: indexPath)
-        
         // Configure the cell...
         cell.textLabel?.text = self.dinnerList[indexPath.row].nameRecipe
-        
         return cell
     }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = self.dinnerList[indexPath.row]
@@ -88,7 +77,6 @@ class DinnerTableVC: UITableViewController, AddRecipe {
     }
     
     
-
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -164,32 +152,20 @@ class DinnerTableVC: UITableViewController, AddRecipe {
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: dinnerList)
         userDefaults.set(encodedData, forKey: "dinnerListSaved")
         userDefaults.synchronize()
-        
-        //print("on storeData \(breakfastList.count)")
-        //defaults?.set(breakfastList[0], forKey: "breakfastSaved")
-        //defaults?.synchronize()
-        
     }
     
     
     // getting app adata
     func getData() {
         let userDefaults = UserDefaults.standard
-        let data = userDefaults.object(forKey: "dinnerListSaved")
-        
-        if  data != nil {
-            
+        if let data = userDefaults.object(forKey: "dinnerListSaved") {
             let datas = data as! Data
             let decodedBreakfastList = NSKeyedUnarchiver.unarchiveObject(with: datas) as! [Dish]
-            
             print("Count:  \(decodedBreakfastList.count)")
             self.dinnerList = decodedBreakfastList
-            
         } else {
             print("No data")
         }
-        
     }
  
-
 }

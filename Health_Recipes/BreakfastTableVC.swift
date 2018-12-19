@@ -8,14 +8,12 @@
 
 import UIKit
 
-class BreakfastTableVC: UITableViewController, AddRecipe {
+class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
     
     // MARK: Vars
     var breakfastList: Array<Dish> = Array()
     
     // MARK: funcs
-    
-    // MARK: IBOutlet
     
     // MARK: Protocols
     func newRecipeAdded(newDish: Dish) {
@@ -33,7 +31,7 @@ class BreakfastTableVC: UITableViewController, AddRecipe {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad from BreakfastTablewView")
+        print("viewDidLoad from BreakfastTableVC")
         getData()
         // testing
         /*
@@ -47,30 +45,20 @@ class BreakfastTableVC: UITableViewController, AddRecipe {
         sandwich.ingredients = ingredientTest
         self.breakfastList.append(sandwich)
         */
-        
-        //storeData()
-        
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+    
     }
 
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear from BreakfastTablewView")
+        print("viewWillAppear from BreakfastTableVC")
         self.tableView.reloadData()
         //getData()
     }
     
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("viewDidDisappear from BreakfastTablewView")
+        print("viewDidDisappear from BreakfastTableVC")
         storeData()
     }
     
@@ -79,23 +67,17 @@ class BreakfastTableVC: UITableViewController, AddRecipe {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.breakfastList.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreakfastCell", for: indexPath)
-
         // Configure the cell...
-        
         cell.textLabel?.text = self.breakfastList[indexPath.row].nameRecipe
-
         return cell
     }
     
@@ -169,31 +151,21 @@ class BreakfastTableVC: UITableViewController, AddRecipe {
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: breakfastList)
         userDefaults.set(encodedData, forKey: "breakfastListSaved")
         userDefaults.synchronize()
-        
-        //print("on storeData \(breakfastList.count)")
-        //defaults?.set(breakfastList[0], forKey: "breakfastSaved")
-        //defaults?.synchronize()
-        
     }
 
     
     // getting app adata
     func getData() {
         let userDefaults = UserDefaults.standard
-        let data = userDefaults.object(forKey: "breakfastListSaved")
         
-        if  data != nil {
-            
+        if  let data = userDefaults.object(forKey: "breakfastListSaved") {
             let datas = data as! Data
             let decodedBreakfastList = NSKeyedUnarchiver.unarchiveObject(with: datas) as! [Dish]
-            
             print("Count:  \(decodedBreakfastList.count)")
-            
             self.breakfastList = decodedBreakfastList
         } else {
-            print("No data")
+            print("No data found for key: breakfastListSaved")
         }
-        
     }
 
 }
