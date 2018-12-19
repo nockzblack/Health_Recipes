@@ -8,8 +8,18 @@
 
 import UIKit
 
-class DinnerTableVC: UITableViewController {
+class DinnerTableVC: UITableViewController, AddRecipe {
     
+    
+    func newRecipeAdded(newDish: Dish) {
+        self.dinnerList.append(newDish)
+    }
+    
+    
+    @IBAction func newDinnerAdded(_ sender: UIBarButtonItem) {
+        print("here: Inside newDinnerAdded Button")
+        self.performSegue(withIdentifier: "addNewRecipe", sender: nil)
+    }
     
     // MARK: Vars
     var dinnerList: Array<Dish> = Array()
@@ -18,6 +28,8 @@ class DinnerTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getData()
+        /*
         // testing
          var ingredientTest = ""
          ingredientTest += "Butter \n"
@@ -28,6 +40,7 @@ class DinnerTableVC: UITableViewController {
          sandwich.instructions = "Spread the butter to the pieces of bread"
          sandwich.ingredients = ingredientTest
          self.dinnerList.append(sandwich)
+        */
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,6 +53,11 @@ class DinnerTableVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear from DinnerTableVC")
         self.tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("viewDidDisappear from DinnerTableVC")
+        storeData()
     }
 
     // MARK: - Table view data source
@@ -63,6 +81,11 @@ class DinnerTableVC: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = self.dinnerList[indexPath.row]
+        self.performSegue(withIdentifier: "RecipeSegue", sender: recipe)
+    }
     
     
 
@@ -111,14 +134,62 @@ class DinnerTableVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "RecipeSegue" {
+            let auxRecipe = sender as! Dish
+            let recipeView:RecipeVC = segue.destination as! RecipeVC
+            recipeView.dish = auxRecipe
+        }
+        
+        if segue.identifier == "addNewRecipe" {
+            print("here: Inside addNewRecipe segue")
+            let auxAddRecipeView:AddingRecipeVC = segue.destination as! AddingRecipeVC
+            auxAddRecipeView.addDelegate = self
+        }
     }
-    */
+    
+    
+    // MARK: Saving Data
+    
+    // storing app data
+    func storeData() {
+        let userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: dinnerList)
+        userDefaults.set(encodedData, forKey: "dinnerListSaved")
+        userDefaults.synchronize()
+        
+        //print("on storeData \(breakfastList.count)")
+        //defaults?.set(breakfastList[0], forKey: "breakfastSaved")
+        //defaults?.synchronize()
+        
+    }
+    
+    
+    // getting app adata
+    func getData() {
+        let userDefaults = UserDefaults.standard
+        let data = userDefaults.object(forKey: "dinnerListSaved")
+        
+        if  data != nil {
+            
+            let datas = data as! Data
+            let decodedBreakfastList = NSKeyedUnarchiver.unarchiveObject(with: datas) as! [Dish]
+            
+            print("Count:  \(decodedBreakfastList.count)")
+            self.dinnerList = decodedBreakfastList
+            
+        } else {
+            print("No data")
+        }
+        
+    }
+ 
 
 }

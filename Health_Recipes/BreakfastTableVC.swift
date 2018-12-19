@@ -115,7 +115,7 @@ class BreakfastTableVC: UITableViewController, AddRecipe {
         if segue.identifier == "RecipeSegue" {
             let auxRecipe = sender as! Dish
             let recipeView:RecipeVC = segue.destination as! RecipeVC
-            recipeView.breakfast = auxRecipe
+            recipeView.dish = auxRecipe
         }
         
         if segue.identifier == "addNewRecipe" {

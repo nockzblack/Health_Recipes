@@ -13,7 +13,7 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     var imagePickerController : UIImagePickerController!
     
     // Vars
-    var breakfast = Dish()
+    var dish = Dish()
     
     // IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -74,17 +74,17 @@ class RecipeVC: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         recipePhotoImageView.contentMode = .scaleToFill
         recipePhotoImageView.image = chosenImage
-        saveImage(imageName: breakfast.nameRecipe)
+        saveImage(imageName: dish.nameRecipe)
     }
     
     // System Funcs
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dishNameLabel.text = self.breakfast.nameRecipe
-        self.preparationTextView.text = self.breakfast.instructions
-        self.ingredientsTextView.text = self.breakfast.ingredients
-        getImage(imageName: breakfast.nameRecipe)
+        self.dishNameLabel.text = self.dish.nameRecipe
+        self.preparationTextView.text = self.dish.instructions
+        self.ingredientsTextView.text = self.dish.ingredients
+        getImage(imageName: dish.nameRecipe)
     }
     
     override func viewDidAppear(_ animated: Bool) {
