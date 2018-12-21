@@ -29,6 +29,7 @@ class DinnerTableVC: UITableViewController, AddRecipeDelegate {
     // MARK: System Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.tableView.isEditing = true
         getData()
         /*
         // testing
@@ -90,6 +91,21 @@ class DinnerTableVC: UITableViewController, AddRecipeDelegate {
         }
     }
     
+    /*
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+ */
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedDish = self.dinnerList[sourceIndexPath.row]
+        self.dinnerList.remove(at: sourceIndexPath.row)
+        self.dinnerList.insert(movedDish, at: destinationIndexPath.row)
+    }
 
     /*
     // Override to support rearranging the table view.
