@@ -18,6 +18,7 @@ class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
     // MARK: Protocols
     func newRecipeAdded(newDish: Dish) {
         self.breakfastList.append(newDish)
+        storeData()
     }
     
     // MARK: IBACtions

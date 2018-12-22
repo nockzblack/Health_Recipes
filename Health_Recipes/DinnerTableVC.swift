@@ -23,13 +23,13 @@ class DinnerTableVC: UITableViewController, AddRecipeDelegate {
     // MARK: Protocols
     func newRecipeAdded(newDish: Dish) {
         self.dinnerList.append(newDish)
+        storeData()
     }
     
     
     // MARK: System Funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.tableView.isEditing = true
         getData()
         /*
         // testing
@@ -43,6 +43,8 @@ class DinnerTableVC: UITableViewController, AddRecipeDelegate {
          sandwich.ingredients = ingredientTest
          self.dinnerList.append(sandwich)
         */
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     
@@ -91,36 +93,32 @@ class DinnerTableVC: UITableViewController, AddRecipeDelegate {
         }
     }
     
-    /*
+    
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+      return .delete
     }
- */
+ 
     
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedDish = self.dinnerList[sourceIndexPath.row]
-        self.dinnerList.remove(at: sourceIndexPath.row)
-        self.dinnerList.insert(movedDish, at: destinationIndexPath.row)
+       return true
     }
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedDish = self.dinnerList[fromIndexPath.row]
+        self.dinnerList.remove(at: fromIndexPath.row)
+        self.dinnerList.insert(movedDish, at: to.row)
+        storeData()
     }
-    */
-
-    /*
+    
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+        return true // Return false if you do not want the item to be re-orderable.
     }
-    */
+ 
+    
 
     
     // MARK: - Navigation
