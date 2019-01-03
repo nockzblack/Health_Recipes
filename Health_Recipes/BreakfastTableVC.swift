@@ -13,7 +13,6 @@ class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
     // MARK: Vars
     var breakfastList: Array<Dish> = Array()
     
-    // MARK: funcs
     
     // MARK: Protocols
     func newRecipeAdded(newDish: Dish) {
@@ -46,7 +45,7 @@ class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
         sandwich.ingredients = ingredientTest
         self.breakfastList.append(sandwich)
         */
-    
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     
@@ -54,7 +53,6 @@ class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear from BreakfastTableVC")
         self.tableView.reloadData()
-        //getData()
     }
     
     
@@ -102,20 +100,32 @@ class BreakfastTableVC: UITableViewController, AddRecipeDelegate {
         }
     }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let movedDish = self.breakfastList[fromIndexPath.row]
+        self.breakfastList.remove(at: fromIndexPath.row)
+        self.breakfastList.insert(movedDish, at: to.row)
+        storeData()
+    }
+    
+    
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true // Return false if you do not want the item to be re-orderable.
+    }
+    
+    
+    
     
     
     // MARK: - Navigation
